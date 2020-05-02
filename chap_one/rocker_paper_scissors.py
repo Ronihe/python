@@ -1,13 +1,18 @@
-player1 = input("player 1, make your move...")
-player2 = input("player 2, make your move...")
+from random import randint
+
+idx = randint(0, 2)
+opt_list = ["rock", "paper", "scissors"]
+
+player = input("player 1, make your move...")
+bot = opt_list[idx]
 # can just think of one player, tie and, else the other win,
-if player1 == player2:
+if bot == player:
     print("tied")
-elif player1 == "rock" and player2 == "scissors":
-    print(f"player1 is {player1}, player is {player2}, player1 won")
-elif player1 == "paper" and player2 =="rock":
-    print("player1 won")
-elif player1 == "scissors" and player2 == "paper":
-    print("player1 won")
+elif bot == "rock" and player == "scissors":
+    print(f"bot is {bot}, player is {player}, bot won")
+elif bot == "paper" and player == "rock":
+    print(f"bot is {bot}, player is {player}, bot won")
+elif bot == "scissors" and player == "paper":
+    print(f"bot is {bot}, player is {player}, bot won")
 else:
-    print("player2 won")
+    print(f"bot is {bot}, player is {player}, player won")
