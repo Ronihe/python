@@ -2,8 +2,9 @@ from random import randint
 
 idx = randint(0, 2)
 opt_list = ["rock", "paper", "scissors"]
+el = 123
 
-player = input("player 1, make your move...")
+player = input("player 1, make your move...").lower()
 bot = opt_list[idx]
 # can just think of one player, tie and, else the other win,
 if bot == player:

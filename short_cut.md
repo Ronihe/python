@@ -1,6 +1,8 @@
 Pycharm Shortcuts Cheatsheet
 ============================
-[reference](https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard_mac.pdf)
+[short cut reference for pycharm](https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard_mac.pdf)
+
+[python coding style](http://google.github.io/styleguide/pyguide.html)
 
 List of important shortcuts for pycharm
 
