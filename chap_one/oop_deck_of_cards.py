@@ -18,6 +18,7 @@ class Card:
 class Deck:
     def __init__(self):
         self.cards = [Card(suite, value) for suite in Card.suites for value in Card.values]
+        self.current = 0
         # make the all the possible cards:
 
         # for suite in Card.suites:
@@ -26,6 +27,10 @@ class Deck:
 
     def __repr__(self):
         return f"{self.count()} cards"
+
+    def __iter__(self):
+        """To make the deck iterable"""
+        return iter(self.cards)
 
     def count(self):
         return len(self.cards)
@@ -49,3 +54,11 @@ class Deck:
 deck1 = Deck()
 print(deck1.shuffle())
 print(deck1.cards, deck1.count(), deck1.deal_card())
+
+for card in deck1:
+    print(card)
+
+print(deck1.__dict__)
+help(Deck)
+# How to iterate through the deck
+# __iter__
