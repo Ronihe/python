@@ -48,7 +48,14 @@ for counter in counter1:
 # Generators can be created with generator functions
 # Generator functions use the yield keyword
 # Generators can be created with generator expressions
-# generaor is saving memory space, but slower: https://www.freecodecamp.org/news/how-and-why-you-should-use-python-generators-f6fb56650888/
+
+# generator:
+# generaor is saving memory space: https://www.freecodecamp.org/news/how-and-why-you-should-use-python-generators-f6fb56650888/
+# Also called calculation on demand
+# Only compute values as needed
+# Can help improve performance of your code
+
+
 
 # Generator function: using yield, can yield multiple times, when invokes, returns generator
 def count_up_to(max):
@@ -102,7 +109,11 @@ def fib_gen(max):
         yield a
         count += 1
 
+
 # generator expression:
 # You can also create generators from generator expressions
 # Generator expressions look a lot like list comprehensions
 # Generator expressions use () instead of []
+
+g = (num for num in range(1, 10))
+print(g)
