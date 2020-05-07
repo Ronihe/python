@@ -101,3 +101,31 @@ class ActivityTests(unittest.TestCase):
 # to see the docstring run python name_of_file.py -v
 if __name__ == "__main__":
     unittest.main()
+
+
+# setUp and tearDown
+#
+# For larger applications, you may want similar application state before running tests
+# setUp runs before each test method
+# tearDown runs after each test method
+# Common use cases: adding/removing data from a test database, creating instances of a class
+
+class SomeTests(unittest.TestCase):
+
+    def setUp(self):
+        # do setup here
+        pass
+
+    def test_first(self):
+        # setUp runs before
+        # tearDown runs after
+        pass
+
+    def test_second(self):
+        # setUp runs before
+        # tearDown runs after
+        pass
+
+    def tearDown(self):
+        # do teardown here
+        pass
