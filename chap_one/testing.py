@@ -88,7 +88,6 @@ import unittest
 # from activities import eat, nap
 
 class ActivityTests(unittest.TestCase):
-    print("running")
     def test_eat(self):
         """testing a thing"""
         print('eating')
@@ -128,4 +127,4 @@ class SomeTests(unittest.TestCase):
 
     def tearDown(self):
         # do teardown here
-        pass
+        pas
