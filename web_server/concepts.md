@@ -114,3 +114,14 @@ ex:
 3. resp body:
 
 
+# http.server Python module
+
+Note: http.server is not recommended for production. It only implements basic security checks. But it is a first step to understand the lower level behavior of a Web server.
+
+## Servers and handlers
+`HTTPServer` class and `request handler` class
+
+- httpServer: how to listen on a port and accept HTTP request from clients. whenever it receives a request, it hands that request off to the second part -  a request handler -  which is dffierent from every web service.
+
+
+
