@@ -147,6 +147,20 @@ By the way, the names of HTTP headers are case-insensitive. So there's no differ
 
 ```
 
+### post method
+The code for a do_POST method will need to do some pretty different things from a do_GET method.
+
+Inside do_POST, our code can read the request body by calling the self.rfile.read method. self.rfile is a file object, like the self.wfile we saw earlier — but rfile is for reading the request, rather than writing the response.
+```commandline
+However, self.rfile.read needs to be told how many bytes to read … in other words, how long the request body is.
+
+```
+### headers are strings or missing
+- Instead, we'll use the .get dictionary method to get the header value safely.
+
+
+
+
 
 
 
