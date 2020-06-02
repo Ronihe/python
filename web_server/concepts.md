@@ -129,6 +129,27 @@ self.wfile.write method in the handler class expects to be given a bytes objects
 encode() the string to bytes object, which is suitable over the network
 decode() is the opposite
 
+## queries and quoting
+The query part of the URI is the part after the ? mark. Conventionally, query parameters are written as key=value and separated by & signs.
+
+### URL quoting
+HTTP URLs aren't allowed to contain spaces or certain other characters. So if you want to send these characters in an HTTP request, they have to be translated into a "URL-safe" or "URL-quoted" format.
+
+## FORMS
+
+#### Idempotence
+Vocabulary word of the day: idempotent. An action is idempotent if doing it twice (or more) produces the same result as doing it once. "Show me the search results for 'polar bear'" is an idempotent action, because doing it a second time just shows you the same results. "Add a polar bear to my shopping cart" is not, because if you do it twice, you end up with two polar bears.
+
+POST requests are not idempotent. If you've ever seen a warning from your browser asking you if you really mean to resubmit a form, what it's really asking is if you want to do a non-idempotent action a second time.
+
+```commandline
+By the way, the names of HTTP headers are case-insensitive. So there's no difference between writing Content-Length or content-length or even ConTent-LeNgTh … except, of course, that humans will read your code and be confused by that last one.
+
+```
+
+
+
+
 
 
 
