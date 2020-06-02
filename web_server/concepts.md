@@ -123,5 +123,13 @@ Note: http.server is not recommended for production. It only implements basic se
 
 - httpServer: how to listen on a port and accept HTTP request from clients. whenever it receives a request, it hands that request off to the second part -  a request handler -  which is dffierent from every web service.
 
+## http response encode():
+http resp could contain any kind of data, not only text.
+self.wfile.write method in the handler class expects to be given a bytes objects.
+encode() the string to bytes object, which is suitable over the network
+decode() is the opposite
+
+
+
 
 

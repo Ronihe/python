@@ -27,5 +27,7 @@ class HelloHandler(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     server_address = ("", 8000)
+    # Create an instance of http.server.HTTPServer, giving it your handler class and server information — particularly, the port number.
     httpd = HTTPServer(server_address, HelloHandler)
+    # Call the HTTPServer instance's serve_forever method.
     httpd.serve_forever()
