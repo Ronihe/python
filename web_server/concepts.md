@@ -14,6 +14,7 @@ web clients can send requests and servers send resp backs.
 ## URI:
 uniform resource identifier. aka web address.
 
+
 parts of URI:
 
 URI is a name for a resource.
@@ -158,6 +159,47 @@ However, self.rfile.read needs to be told how many bytes to read … in other wo
 ### headers are strings or missing
 - Instead, we'll use the .get dictionary method to get the header value safely.
 
+
+## Post-Redirect-Get
+There's a very common design pattern for interactive HTTP applications and APIs, called the PRG or Post-Redirect-Get pattern. A client POSTs to a server to create or update a resource; on success, the server replies not with a 200 OK but with a 303 redirect. The redirect causes the client to GET the created or updated resource.
+
+## CONCURRENCY
+Being able to handle two ongoing tasks at the same time is called concurrency, and the basic http.server.HTTPServer doesn't have it. It's pretty straightforward to plug concurrency support into an HTTPServer, though. The Python standard library supports doing this by adding a mixin to the HTTPServer class. A mixin is a sort of helper class, one that adds extra behavior the original class did not have. To do this, you'll need to add this code to your bookmark server:
+
+```commandline
+import threading
+from socketserver import ThreadingMixIn
+
+class ThreadHTTPServer(ThreadingMixIn, http.server.HTTPServer):
+    "This is an HTTPServer that supports thread-based concurrency."
+```
+Then look at the bottom of your bookmark server code, where it creates an HTTPServer. Have it create a ThreadHTTPServer instead:
+
+```commandline
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 8000))
+    server_address = ('', port)
+    httpd = ThreadHTTPServer(server_address, Shortener)
+    httpd.serve_forever()
+```
+## Others:
+### Static content and more
+
+The Web was originally designed to serve documents, not to deliver applications. Even today, a large amount of the data presented on any web site is static content — images, HTML files, videos, downloadable files, and other media stored on disk.
+
+Specialized web server programs — like Apache, Nginx, or IIS — can serve static content from disk storage very quickly and efficiently. They can also provide access control, allowing only authenticated users to download particular static content.
+
+### Routing and load balancing
+
+Some web applications have several different server components, each running as a separate process. One thing a specialized web server can do is dispatch requests to the particular backend servers that need to handle each request. There are a lot of names for this, including request routing and reverse proxying.
+
+Some web applications need to do a lot of work on the server side for each request, and need many servers to handle the load. Splitting requests up among several servers is called load balancing.
+
+## https:
+When a browser and a server speak HTTPS, they're just speaking HTTP, but over an encrypted connection. The encryption follows a standard protocol called Transport Layer Security, or TLS for short. TLS provides some important guarantees for web security:
+- privacy: It keeps the connection private by encrypting everything sent over it. Only the server and browser should be able to read what's being sent.
+- authenticity: It lets the browser authenticate the server. For instance, when a user accesses https://www.udacity.com/, they can be sure that the response they're seeing is really from Udacity's servers and not from an impostor.
+- integrity: It helps protect the integrity of the data sent over that connection — checking that it has not been (accidentally or deliberately) modified or replaced.
 
 
 
