@@ -45,10 +45,12 @@ structural diagrams and behavioral or interaction diagrams.
   Interaction overview diagram
   Timing diagram
 
-Use Case Diagram: Used to describe a set of user scenarios, this diagram, illustrates the functionality provided by the system.
+**Use Case Diagram**: Used to describe a set of user scenarios, this diagram, illustrates the functionality provided by the system.
 
 Class Diagram: Used to describe structure and behavior in the use cases, this diagram provides a conceptual model of the system in terms of entities and their relationships.
 
 Activity Diagram: Used to model the functional flow-of-control between two or more class objects.
 
 Sequence Diagram: Used to describe interactions among classes in terms of an exchange of messages over time.
+
+
